@@ -367,21 +367,51 @@ public class Picture
   }
 
    ////////////////////// methods ///////////////////////////////////////
-  //precondition: amount is between 0 and 1
-public void decreaseBlue(double amount)
-   {
-   //create a pixel array
-   Pixel[]pixelArray=this.getPixels();
-   //create a pixel object
-   Pixel p  = null;
-   //loop through all of the pixels
-   for(int x=0;x<pixelArray.length;x++)
-   {
-   //get the current pixel
-   p =pixelArray[x];
-    //decrease the blue value
-    p.setBlue((int)(p.getBlue()*amount));
+   //UNIT 1 LAB 2
+   //Method to turn all colors in the image to their negative - no parameters, void
+   
+//Create/initialize a Pixel array named pixels
+//Create a Pixel object named p, set equal to null for now
+//Loop/traverse through pixel array - For loop, int i = 0, i < pixels.length, i increments by one
+//Get the current pixel by setting p equal to the element in pixels at index i (pixels[i])
+//Get red of pixel p, subtract from 255, and set red for p 
+//Get blue of pixel p, subtract from 255, and set blue for p 
+//Get green of pixel p, subtract from 255, and set green for p 
+
+   //UNIT 1 LAB 1
+   /** Decreases red, blue, green values in an image, takes in doubles redAmt, greenAmt, blueAmt as parameters
+   * precondition: all parameters are greater than 0 and less than 1
+   */
+   public void decreaseRGB (double redAmt, double greenAmt, double blueAmt) {
+     //Create/initialize a Pixel array named pixelsArr
+     Pixel[] pixelsArr = this.getPixels();
+     //Loop/traverse through pixel array using for each loop with iterator variable Pixel p
+     for(Pixel p : pixelsArr) {
+       //Get red of pixel p, multiply by redAmt (cast to int), and set red for p 
+       p.setRed((int)(p.getRed()*redAmt));
+       //Get green of pixel p, multiply by greenAmt (cast to int), and set green for p 
+       p.setGreen((int)(p.getGreen()*greenAmt));
+       //Get blue of pixel p, multiply by blueAmt (cast to int), and set blue for p
+       p.setBlue((int)(p.getBlue()*blueAmt));
+      }
    }
+
+  
+  //precondition: amount is between 0 and 1
+  public void decreaseBlue(double amount)
+   {
+    //create a pixel array
+    Pixel[]pixelArray=this.getPixels();
+    //create a pixel object
+    Pixel p  = null;
+    //loop through all of the pixels
+    for(int x=0;x<pixelArray.length;x++)
+    {
+      //get the current pixel
+      p =pixelArray[x];
+      //decrease the blue value
+      p.setBlue((int)(p.getBlue()*amount));
+    }
    }
    
 /*
